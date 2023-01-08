@@ -1,6 +1,6 @@
-function ExpenseDetails(props) {
+const ExpenseDetails = props => {
 
-    const { title, location, amount } = props;
+    const { title, location, amount } = props.expense;
 
     return (
         <div className='expense-item__description'>

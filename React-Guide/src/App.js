@@ -1,6 +1,8 @@
-import ExpenseItem from './components/ExpenseItem';
+import React from 'react';
+import ExpenseItem from './components/Expenses/ExpenseItem';
+import Card from './components/UI/Card';
 
-function App() {
+const App = () => {
     const expenses = [
         {
             id: 'e1',
@@ -31,20 +33,20 @@ function App() {
             location: 'IKEA'
         },
     ];
-  
+
     return (
         <div>
             <h2>Let's get started!</h2>
-
-            { expenses.map(e => {
-                return <ExpenseItem
-                    title={ e.title }
-                    amount={ e.amount }
-                    date={ e.date }
-                    location={ e.location }
-                />
-            }) }
-            
+            <Card className='expenses'>
+                { expenses.map(e => {
+                    return <ExpenseItem
+                        title={ e.title }
+                        amount={ e.amount }
+                        date={ e.date }
+                        location={ e.location }
+                    />
+                }) }
+            </Card>
         </div>
     );
 }
