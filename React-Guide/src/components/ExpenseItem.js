@@ -1,10 +1,10 @@
 import './ExpenseItem.css';
 
-function ExpenseItem() {
+function ExpenseItem(props) {
 
-    const expenseDate = new Date(2016, 2, 28).toLocaleDateString();
-    const expenseTitle = 'Car Insurance';
-    const expensePrice = 69.99;
+    const expenseDate = props.date.toLocaleDateString();
+    const expenseTitle = props.title;
+    const expensePrice = props.amount;
     const expenseLocation = 'Insurance Company';
 
     return (
