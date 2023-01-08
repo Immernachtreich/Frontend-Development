@@ -42,7 +42,7 @@ function App() {
                     amount={ e.amount }
                     date={ e.date }
                     location={ e.location }
-                ></ExpenseItem>
+                />
             }) }
             
         </div>
