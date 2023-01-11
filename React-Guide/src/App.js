@@ -1,5 +1,6 @@
 // Package Imports
 import React from 'react';
+import { useState } from 'react';
 
 // Component Imports
 import ExpenseItem from './components/Expenses/ExpenseItem';
@@ -38,9 +39,13 @@ const App = () => {
         },
     ];
 
+    const addExpenseHandler = expense => {
+        console.log(expense);
+    }
+
     return (
         <div>
-            <NewExpense />
+            <NewExpense onAddExpense={ addExpenseHandler }/>
             <Card className='expenses'>
                 { expenses.map(e => {
                     return <ExpenseItem
