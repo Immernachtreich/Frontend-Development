@@ -9,10 +9,12 @@ import './ExpenseItem.css';
 const ExpenseItem = props => {
 
     return (
-        <Card className='expense-item'>
-            <ExpenseDate date={ props.date } />
-            <ExpenseDetails expense={ props } />
-        </Card>
+        <li>
+            <Card className='expense-item'>
+                <ExpenseDate date={ props.date } />
+                <ExpenseDetails expense={ props } />
+            </Card>
+        </li>
     );
 }
 

@@ -3,9 +3,9 @@ import React from 'react';
 import { useState } from 'react';
 
 // Component Imports
-import ExpenseItem from './components/Expenses/ExpenseItem';
 import NewExpense from './components/NewExpenses/NewExpense';
 import ExpenseFilter from './components/Expenses/ExpenseFilter';
+import ExpenseList from './components/Expenses/ExpenseList';
 
 import Card from './components/UI/Card';
 
@@ -48,12 +48,14 @@ const App = () => {
     const addExpenseHandler = expense => {
         setExpenses(prevExpenses => {
             return [expense, ...prevExpenses];
-        })
+        });
     }
 
     const filterChangeHandler =  selectedYear => {  
         setFilteredYear(selectedYear);
     }
+
+    const filteredExpenses = expenses.filter(e => e.date.getFullYear() == filteredYear);
 
     return (
         <div>
@@ -61,18 +63,7 @@ const App = () => {
             <NewExpense onAddExpense={ addExpenseHandler }/>
             <Card className='expenses'>
                 <ExpenseFilter selected={ filteredYear } onChange={ filterChangeHandler } />
-                { expenses.map(e => {
-
-                    if(e.date.getFullYear() == filteredYear) {
-                        return (<ExpenseItem
-                            key={ e.id }
-                            title={ e.title }
-                            amount={ e.amount }
-                            date={ e.date }
-                            location={ e.location }
-                        />);
-                    }
-                }) }
+                <ExpenseList expenses={ filteredExpenses } />
             </Card>
 
         </div>
