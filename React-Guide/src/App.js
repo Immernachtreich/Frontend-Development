@@ -6,6 +6,7 @@ import { useState } from 'react';
 import NewExpense from './components/NewExpenses/NewExpense';
 import ExpenseFilter from './components/Expenses/ExpenseFilter';
 import ExpenseList from './components/Expenses/ExpenseList';
+import ExpenseChart from './components/Expenses/ExpenseChart';
 
 import Card from './components/UI/Card';
 
@@ -63,6 +64,7 @@ const App = () => {
             <NewExpense onAddExpense={ addExpenseHandler }/>
             <Card className='expenses'>
                 <ExpenseFilter selected={ filteredYear } onChange={ filterChangeHandler } />
+                <ExpenseChart expenses={ filteredExpenses }/>
                 <ExpenseList expenses={ filteredExpenses } />
             </Card>
 
