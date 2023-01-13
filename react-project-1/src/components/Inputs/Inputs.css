@@ -1,0 +1,36 @@
+.Input-Form {
+    padding-top: 1rem;
+}
+
+.Input-Form label {
+    display: block;
+    margin: 0rem 1rem;
+    font-size: 15px;
+}
+
+.Input-Form input {
+    margin: 1rem 1rem;
+    width: 90%;
+    height: 1.5rem;
+}
+
+/* For removing arrows on input field */
+.Input-Form 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.Input-Form button {
+    margin: 1rem 1rem;
+    height: 2rem;
+    width: 7rem;
+
+    background-color: rgb(248, 124, 124);
+    border: none;
+    border-radius: 5px;
+    color: whitesmoke;
+
+    font-weight: bold;
+}

@@ -1,0 +1,57 @@
+.Popup-Div {
+    display: none;
+}
+
+.Popup-Div.Closed {
+    display: none;
+}
+
+.Popup-Div.Invalid {
+    display: block;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.Popup-Div__Inner {
+    position: absolute;
+    top: 30%;
+    left: 27.5%;
+
+    width: 45%;
+    height: 10rem;
+    margin: auto;
+
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+.Popup-Div h2 {
+    display: inline-block;
+    margin-left: 2rem;
+
+    font-size: 25px;
+
+}
+
+.Popup-Div p {
+    display: block;
+    margin-top: 2rem;
+    margin-left: 2rem;
+
+    font-size: 20px;
+}
+
+.Popup-Div button {
+    float: right;
+    margin: 1rem;
+
+    border: none;
+    background-color: transparent;
+
+    font-weight: bold;
+    font-size: 20px;
+}
