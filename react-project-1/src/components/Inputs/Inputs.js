@@ -1,5 +1,5 @@
 // Package Imports
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 // Component Imports
 import Card from '../UI/Card';
@@ -9,41 +9,37 @@ import './Inputs.css';
 
 const Inputs = props => {
  
-    const [name, setName] = useState('');
-    const [age, setAge] = useState('');
+    // const [name, setName] = useState('');
+    // const [age, setAge] = useState('');
 
-    const onNameChange = e => {
-        setName(e.target.value);
-    };
-
-    const onAgeChange = e => {
-        setAge(e.target.value);
-    };
+    const nameInputRef = useRef();
+    const ageInputRef = useRef();
+    const collegeInputRef = useRef(); 
 
     const addUser = e => {
 
         e.preventDefault();
+        
+        const name = nameInputRef.current.value;
+        const age = ageInputRef.current.value;
+        const college = collegeInputRef.current.value;
 
-        if(name === '' && age.toString() === '') {
+        if(name === '' || age.toString() === '' || college === '') {
             props.onEmpty(false, 'Please Enter All The Fields');
-            
-        } else if(name === '') {
-            props.onEmpty(false, 'Please Enter Name');
-
-        } else if(age.toString() === '') {
-            props.onEmpty(false, 'Please Enter Age');
 
         } else {
             const userData = {
                 id: Math.random().toString(),
                 name: name,
-                age: age
+                age: age,
+                college: college
             };
     
             props.addUser(userData);
     
-            setName('');
-            setAge('');
+            nameInputRef.current.value = '';
+            ageInputRef.current.value = '';
+            collegeInputRef.current.value = '';
         }
     };
 
@@ -51,10 +47,13 @@ const Inputs = props => {
         <form className='Input-Form' onSubmit={ addUser }>
 
             <label> Username </label>
-            <input type='text' value={ name } onChange={ onNameChange }/>
+            <input type='text' ref={ nameInputRef } />
 
             <label> Age (Years) </label>
-            <input type='number' value={ age } onChange= { onAgeChange } />
+            <input type='number' ref={ ageInputRef } />
+
+            <label> College Name </label>
+            <input type='text' ref={ collegeInputRef } />
 
             <button> Add User </button>
         </form>
