@@ -25,7 +25,6 @@ const passwordReducer = (state, action) => {
       return { value: action.val, isValid: action.val.trim().length > 6 };
     }
     case 'INPUT_BLUR': {  
-      console.log('hlo')
       return { value: state.value, isValid: state.value.trim().length > 6 };
     }
   };
@@ -50,7 +49,7 @@ const Login = (props) => {
 
   useEffect(() => {
     setFormIsValid(
-      emailState.isValid && passwordState.isValid > 6 && enteredCollege !== ''
+      emailState.isValid && passwordState.isValid && collegeIsValid
     );
   }, [emailState.value, passwordState.value, enteredCollege])
 
